@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guía de orientación vocacional para jóvenes: descubre tus intereses, explora carreras universitarias y técnicas y conoce instituciones de Lima, Perú.">
+  <meta name="theme-color" content="#153b70">
+  <title>Mi Futuro, Mi Decisión | Orientación vocacional</title>
+  <style>
+    :root {
+      --navy:#153b70; --blue:#2463a6; --sky:#eaf3ff; --orange:#f29a38;
+      --ink:#17263b; --muted:#617087; --paper:#ffffff; --bg:#f5f8fc;
+      --line:#dce5f0; --green:#e8f6ef; --shadow:0 12px 34px rgba(21,59,112,.09);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+    a{color:var(--blue)}
+    .wrap{width:min(1120px,92%);margin:auto}
+    header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-weight:800;color:var(--navy);text-decoration:none;font-size:1.05rem;letter-spacing:.2px}
+    .brand span{color:var(--orange)}
+    nav{display:flex;gap:20px;flex-wrap:wrap}
+    nav a{text-decoration:none;color:var(--ink);font-size:.92rem;font-weight:700}
+    nav a:hover{color:var(--blue)}
+    .hero{background:linear-gradient(120deg,#153b70,#2869a9);color:white;padding:76px 0 68px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:40px}
+    .eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.76rem;font-weight:800;color:#ffd49d}
+    h1{font-size:clamp(2.4rem,6vw,4.5rem);line-height:1.04;margin:12px 0 18px;max-width:720px}
+    .hero p{font-size:1.12rem;max-width:650px;color:#e6f0ff}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .btn{display:inline-block;padding:12px 19px;border-radius:999px;text-decoration:none;font-weight:800;border:2px solid transparent;cursor:pointer;font-size:.95rem}
+    .btn-primary{background:var(--orange);color:#18283c}
+    .btn-light{border-color:#c8dcf5;color:white}
+    .hero-art{background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.2);border-radius:28px;padding:25px;text-align:center}
+    .hero-art .emoji{font-size:6rem;line-height:1.4}
+    .hero-art strong{display:block;font-size:1.15rem}
+    .hero-art small{color:#e1edff}
+    section{padding:66px 0}
+    .section-head{max-width:720px;margin-bottom:28px}
+    .kicker{color:var(--blue);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:.75rem}
+    h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;color:var(--navy);margin:8px 0 12px}
+    .lead{color:var(--muted);font-size:1.04rem;margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:23px;box-shadow:var(--shadow)}
+    .card-icon{font-size:2rem}
+    .card h3{margin:8px 0;color:var(--navy);font-size:1.12rem}
+    .card p{color:var(--muted);margin:0}
+    .soft{background:#edf4fc}
+    .quiz{max-width:800px;background:white;border:1px solid var(--line);border-radius:24px;padding:clamp(20px,4vw,34px);box-shadow:var(--shadow)}
+    .question{padding:18px 0;border-bottom:1px solid var(--line)}
+    .question:last-of-type{border:0}
+    .question h3{font-size:1.05rem;margin:0 0 12px;color:var(--navy)}
+    .choices{display:grid;gap:9px}
+    label.choice{display:flex;align-items:flex-start;gap:10px;padding:11px 13px;border:1px solid var(--line);border-radius:12px;cursor:pointer}
+    label.choice:hover{background:var(--sky);border-color:#a9c9ef}
+    input[type=radio]{margin-top:5px;accent-color:var(--blue)}
+    button{font-family:inherit}
+    .result{display:none;background:var(--green);border:1px solid #b8e0c9;border-radius:16px;padding:18px;margin-top:18px}
+    .result h3{margin:0 0 6px;color:#145b37}
+    .result p{margin:0;color:#244b38}
+    .institutions{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .institution{display:flex;flex-direction:column;background:white;border:1px solid var(--line);border-radius:18px;padding:20px}
+    .institution-top{display:flex;align-items:center;gap:13px}
+    .logo-placeholder{width:48px;height:48px;flex:0 0 48px;border-radius:14px;background:var(--sky);display:grid;place-items:center;font-size:1.5rem}
+    .institution h3{margin:0;color:var(--navy);font-size:1.05rem}
+    .tag{font-size:.75rem;color:#52657e;background:#f0f4f9;padding:3px 8px;border-radius:999px;display:inline-block;margin-top:4px}
+    .institution p{color:var(--muted);font-size:.92rem;margin:12px 0}
+    .institution a{font-weight:800;text-decoration:none;margin-top:auto}
+    .institution a:hover{text-decoration:underline}
+    .notice{background:#fff8ec;border:1px solid #f4d9ad;padding:17px 19px;border-radius:15px;color:#62451c;margin-top:20px;font-size:.92rem}
+    .steps{counter-reset:step;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{background:white;border:1px solid var(--line);border-radius:16px;padding:18px}
+    .step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--orange);font-weight:900;color:#1d2d40;margin-bottom:12px}
+    .step h3{font-size:1rem;color:var(--navy);margin:0 0 6px}
+    .step p{font-size:.9rem;color:var(--muted);margin:0}
+    footer{background:#102e56;color:#e8f1fc;padding:34px 0}
+    footer p{margin:5px 0;color:#c8d8ed;font-size:.9rem}
+    footer a{color:#ffd49d}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    @media(max-width:800px){
+      .hero-grid{grid-template-columns:1fr}.hero-art{max-width:360px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .steps{grid-template-columns:repeat(2,1fr)}
+      nav{gap:10px}nav a{font-size:.82rem}
+    }
+    @media(max-width:560px){
+      .nav{align-items:flex-start;padding:14px 0;flex-direction:column}
+      nav{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+      nav a{white-space:nowrap}
+      .hero{padding:52px 0}
+      .grid,.institutions,.steps{grid-template-columns:1fr}
+      section{padding:48px 0}
+      .hero-art{display:none}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio">MI FUTURO<span>,</span> MI DECISIÓN</a>
+    <nav aria-label="Navegación principal">
+      <a href="#orientacion">Orientación</a>
+      <a href="#test">Test vocacional</a>
+      <a href="#carreras">Carreras</a>
+      <a href="#instituciones">Instituciones</a>
+      <a href="#consejos">Consejos</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Tu futuro comienza con una decisión</div>
+        <h1>Descubre tu camino. Construye tu futuro.</h1>
+        <p>Elegir qué estudiar puede generar dudas. Aquí encontrarás ideas, herramientas y enlaces para explorar carreras universitarias y técnicas en Lima, Perú.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#test">Explorar mis intereses</a>
+          <a class="btn btn-light" href="#instituciones">Ver instituciones</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Ilustración de educación y futuro">
+        <div class="emoji">🎓 ✨</div>
+        <strong>Hay más de un camino para alcanzar tus metas.</strong>
+        <small>Infórmate, compara y elige con confianza.</small>
+      </div>
+    </div>
+  </section>
+
+  <section id="orientacion">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Conócete primero</div>
+        <h2>¿Cómo elegir una carrera?</h2>
+        <p class="lead">Una buena elección toma en cuenta lo que te interesa, lo que se te facilita, tus valores y las oportunidades de formación y trabajo.</p>
+      </div>
+      <div class="grid">
+        <article class="card"><div class="card-icon">💡</div><h3>Reconoce tus intereses</h3><p>Piensa en los temas que disfrutas, las actividades que te dan curiosidad y los problemas que te gustaría ayudar a resolver.</p></article>
+        <article class="card"><div class="card-icon">🧩</div><h3>Identifica tus habilidades</h3><p>Considera qué haces bien y qué habilidades te gustaría desarrollar. No necesitas tener todo decidido desde ahora.</p></article>
+        <article class="card"><div class="card-icon">🔎</div><h3>Investiga las opciones</h3><p>Revisa cursos, duración, costos, modalidad, requisitos de ingreso y campos laborales de cada carrera.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="test">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Una primera exploración</div>
+        <h2>Test breve de intereses</h2>
+        <p class="lead">Marca una opción en cada pregunta y descubre algunas áreas que podrías investigar. Este ejercicio orienta, pero no decide por ti.</p>
+      </div>
+      <div class="quiz">
+        <form id="careerQuiz">
+          <div class="question">
+            <h3>1. ¿Qué actividad te llama más la atención?</h3>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="q1" value="tech" required> Crear, usar o reparar tecnología.</label>
+              <label class="choice"><input type="radio" name="q1" value="health"> Cuidar, acompañar o ayudar a personas.</label>
+              <label class="choice"><input type="radio" name="q1" value="creative"> Dibujar, diseñar o comunicar ideas.</label>
+              <label class="choice"><input type="radio" name="q1" value="business"> Organizar proyectos, vender o emprender.</label>
+              <label class="choice"><input type="radio" name="q1" value="science"> Investigar la naturaleza y resolver preguntas.</label>
+            </div>
+          </div>
+          <div class="question">
+            <h3>2. ¿En qué ambiente te imaginas aprendiendo?</h3>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="q2" value="hands" required> En talleres, laboratorios o actividades prácticas.</label>
+              <label class="choice"><input type="radio" name="q2" value="study"> Leyendo, analizando y estudiando conceptos.</label>
+              <label class="choice"><input type="radio" name="q2" value="both"> Combinando teoría y práctica.</label>
+            </div>
+          </div>
+          <div class="question">
+            <h3>3. ¿Qué te gustaría aportar con tu trabajo?</h3>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="q3" value="people" required> Contribuir al bienestar de las personas.</label>
+              <label class="choice"><input type="radio" name="q3" value="ideas"> Crear soluciones e ideas nuevas.</label>
+              <label class="choice"><input type="radio" name="q3" value="organize"> Coordinar equipos y proyectos.</label>
+              <label class="choice"><input type="radio" name="q3" value="discover"> Descubrir, analizar y explicar.</label>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Ver áreas para explorar</button>
+          <button class="btn" type="reset" style="background:#eef2f7;color:#263b56;margin-left:6px">Volver a empezar</button>
+        </form>
+        <div class="result" id="quizResult" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="carreras">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Explora posibilidades</div>
+        <h2>Áreas profesionales y técnicas</h2>
+        <p class="lead">Estas son solo algunas opciones. Una misma área puede ofrecer carreras universitarias y programas de formación técnica.</p>
+      </div>
+      <div class="grid">
+        <article class="card"><div class="card-icon">💻</div><h3>Tecnología e ingeniería</h3><p>Ingeniería de sistemas, desarrollo de software, redes, ciberseguridad, electrónica y soporte tecnológico.</p></article>
+        <article class="card"><div class="card-icon">🩺</div><h3>Salud y bienestar</h3><p>Medicina, enfermería, psicología, nutrición, laboratorio clínico y otras profesiones de la salud.</p></article>
+        <article class="card"><div class="card-icon">🎨</div><h3>Arte y comunicación</h3><p>Diseño gráfico, arquitectura, comunicación audiovisual, publicidad, animación y producción digital.</p></article>
+        <article class="card"><div class="card-icon">📊</div><h3>Negocios y administración</h3><p>Administración, contabilidad, marketing, finanzas, logística y emprendimiento.</p></article>
+        <article class="card"><div class="card-icon">🌱</div><h3>Ciencias y ambiente</h3><p>Biología, química, ingeniería ambiental, gestión de recursos y ciencias naturales.</p></article>
+        <article class="card"><div class="card-icon">🔧</div><h3>Formación técnica</h3><p>Mecatrónica, electricidad, mecánica, gastronomía, mantenimiento, diseño y gestión técnica.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="instituciones">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Investiga y compara</div>
+        <h2>Universidades e institutos en Lima</h2>
+        <p class="lead">Ingresa a las páginas oficiales para conocer sus programas, sedes, requisitos de admisión, costos y becas.</p>
+      </div>
+      <h3 style="color:#153b70;margin:0 0 14px">Universidades</h3>
+      <div class="institutions">
+        <article class="institution"><div class="institution-top"><div class="logo-placeholder">🏛️</div><div><h3>Universidad Nacional Mayor de San Marcos</h3><span class="tag">Pública · Lima</span></div></div><p>Consulta sus facultades, carreras profesionales y procesos de admisión.</p><a href="https://www.unmsm.edu.pe/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial ↗</a></article>
+        <article class="institution"><div class="institution-top"><div class="logo-placeholder">⚙️</div><div><h3>Universidad Nacional de Ingeniería</h3><span class="tag">Pública · Lima</span></div></div><p>Explora su oferta académica en ingeniería, ciencias y tecnología.</p><a href="https://www.uni.edu.pe/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial ↗</a></article>
+        <article class="institution"><div class="institution-top"><div class="logo-placeholder">📚</div><div><h3>Pontificia Universidad Católica del Perú</h3><span class="tag">Privada · Lima</span></div></div><p>Conoce sus facultades, programas de estudio y modalidades de ingreso.</p><a href="https://www.pucp.edu.pe/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial ↗</a></article>
+        <article class="institution"><div class="institution-top"><div class="logo-placeholder">🎓</div><div><h3>Universidad de Lima</h3><span class="tag">Privada · Lima</span></div></div><p>Revisa sus carreras, información para postulantes y servicios estudiantiles.</p><a href="https://www.ulima.edu.pe/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial ↗</a></article>
+        <article class="institution"><div class="institution-top"><div class="logo-placeholder">🌐</div><div><h3>Universidad Peruana de Ciencias Aplicadas</h3><span class="tag">Privada · Lima</span></div></div><p>Consulta su oferta académica y las distintas modalidades de admisión.</p><a href="https://www.upc.edu.pe/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial ↗</a></article>
+        <article class="institution"><div class="institution-top"><div class="logo-placeholder">🚀</div><div><h3>Universidad San Ignacio de Loyola</h3><span class="tag">Privada · Lima</span></div></div><p>Explora sus carreras, programas y orientación para futuros estudiantes.</p><a href="https://usil.edu.pe/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial ↗</a></article>
+      </div>
+
+      <h3 style="color:#153b70;margin:34px 0 14px">Institutos y formación técnica</h3>
+      <div class="institutions">
+        <article class="institution"><div class="institution-top"><div class="logo-placeholder">🛠️</div><div><h3>SENATI</h3><span class="tag">Formación técnica</span></div></div><p>Información sobre carreras técnicas, sedes y procesos de admisión.</p><a href="https://www.senati.edu.pe/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial ↗</a></article>
+        <article class="institution"><div class="institution-top"><div class="logo-placeholder">🔬</div><div><h3>TECSUP</h3><span class="tag">Formación tecnológica</span></div></div><p>Conoce sus programas de tecnología, ingeniería y formación profesional.</p><a href="https://www.tecsup.edu.pe/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial ↗</a></article>
+        <article class="institution"><div class="institution-top"><div class="logo-placeholder">🖥️</div><div><h3>Cibertec</h3><span class="tag">Instituto · Lima</span></div></div><p>Revisa sus programas de tecnología, gestión, diseño y negocios.</p><a href="https://www.cibertec.edu.pe/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial ↗</a></article>
+        <article class="institution"><div class="institution-top"><div class="logo-placeholder">📈</div><div><h3>IDAT</h3><span class="tag">Instituto · Lima</span></div></div><p>Explora sus carreras técnicas y opciones de estudio.</p><a href="https://www.idat.edu.pe/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial ↗</a></article>
+      </div>
+      <div class="notice"><strong>Importante:</strong> esta lista es referencial y no constituye un ranking ni una recomendación exclusiva. Antes de postular, verifica que la institución y el programa estén autorizados, y confirma directamente los costos, la duración, la sede y los requisitos vigentes. Puedes consultar información oficial en <a href="https://www.sunedu.gob.pe/" target="_blank" rel="noopener noreferrer">SUNEDU</a> y en el <a href="https://www.gob.pe/minedu" target="_blank" rel="noopener noreferrer">Ministerio de Educación</a>.</div>
+    </div>
+  </section>
+
+  <section id="consejos">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Decide con información</div>
+        <h2>Antes de elegir, recuerda</h2>
+        <p class="lead">No existe una única carrera perfecta para todos. Tu decisión puede cambiar a medida que aprendes y conoces nuevas oportunidades.</p>
+      </div>
+      <div class="steps">
+        <article class="step"><h3>Conversa</h3><p>Habla con familiares, docentes, orientadores y personas que trabajen en áreas que te interesan.</p></article>
+        <article class="step"><h3>Compara</h3><p>Revisa cursos, duración, costos, horarios, becas y posibilidades de prácticas.</p></article>
+        <article class="step"><h3>Pregunta</h3><p>Asiste a ferias vocacionales, charlas y jornadas de puertas abiertas si están disponibles.</p></article>
+        <article class="step"><h3>Elige sin presión</h3><p>Toma en cuenta tus intereses y circunstancias. No elijas solo por moda o por presión de otras personas.</p></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div><strong>MI FUTURO, MI DECISIÓN</strong><p>Orientación vocacional para jóvenes.</p></div>
+    <div><p>Infórmate · Explora · Compara · Decide</p><p>Material educativo e informativo. Verifica siempre los datos con cada institución.</p></div>
+  </div>
+</footer>
+
+<script>
+  const quiz = document.getElementById('careerQuiz');
+  const result = document.getElementById('quizResult');
+  const recommendations = {
+    tech: {title:'Tecnología e ingeniería', text:'Podrías investigar ingeniería de sistemas, desarrollo de software, redes, electrónica o carreras técnicas de soporte y tecnología.'},
+    health: {title:'Salud y bienestar', text:'Podrías explorar medicina, enfermería, psicología, nutrición, laboratorio clínico y otras carreras de atención y bienestar.'},
+    creative: {title:'Arte, diseño y comunicación', text:'Podrías investigar diseño gráfico, arquitectura, comunicación audiovisual, publicidad, animación o producción digital.'},
+    business: {title:'Negocios y gestión', text:'Podrías explorar administración, contabilidad, marketing, logística, finanzas y emprendimiento.'},
+    science: {title:'Ciencias e investigación', text:'Podrías investigar biología, química, ingeniería ambiental y otras carreras científicas.'}
+  };
+  quiz.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const data = new FormData(quiz);
+    const chosen = data.get('q1');
+    const second = data.get('q2');
+    const third = data.get('q3');
+    if (!chosen || !second || !third) return;
+    const item = recommendations[chosen];
+    let note = second === 'hands'
+      ? ' También puedes revisar programas con bastante práctica, talleres o laboratorios.'
+      : second === 'study'
+      ? ' Compara planes de estudio y considera cuánto análisis y estudio teórico incluye cada programa.'
+      : ' Busca programas que equilibren conocimientos teóricos y experiencias prácticas.';
+    if (third === 'people') note += ' Te puede interesar conocer profesiones orientadas al servicio y al bienestar de las personas.';
+    if (third === 'ideas') note += ' También podrías investigar áreas de innovación, diseño y creación de soluciones.';
+    if (third === 'organize') note += ' También podrías explorar funciones de coordinación, gestión y liderazgo.';
+    if (third === 'discover') note += ' También podrías explorar investigación, análisis y resolución de problemas.';
+    result.innerHTML = '<h3>Área sugerida para explorar: ' + item.title + '</h3><p>' + item.text + note + '</p><p style="margin-top:10px"><strong>Siguiente paso:</strong> revisa los cursos de varias carreras y conversa con alguien que conozca ese campo. Este resultado es orientativo, no una evaluación profesional.</p>';
+    result.style.display = 'block';
+    result.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+  quiz.addEventListener('reset', function() {
+    result.style.display = 'none';
+    result.innerHTML = '';
+  });
+</script>
+</body>
+</html>
